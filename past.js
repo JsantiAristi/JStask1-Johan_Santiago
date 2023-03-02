@@ -14,7 +14,7 @@ function crearTarjeta(array){
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="card-text ">Price $${array.price}</p>
-                    <a href="./details.html" class="btn btn-success">More info</a>
+                    <a href="./details.html" class="btn btn-danger">More info</a>
                 </div>
             </div>
         </div>
