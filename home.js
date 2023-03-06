@@ -1,7 +1,6 @@
 const $cards_home = document.querySelector( "#cards-home" );
 
-function crearTarjeta(array){
-        return `<div class="col-12 col-md-6 col-lg-3 mb-3">
+const crearTarjeta = array => `<div class="col-12 col-md-6 col-lg-3 mb-3">
         <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <img src="${array.image}" class="card-img-top" alt="${array.name}">
             <div class="card-body d-flex flex-column justify-content-between">
@@ -20,7 +19,6 @@ function crearTarjeta(array){
         </div>
     </div>
     `       
-}
 
 function ponerTarjetas( array, element ){
     let template = '';

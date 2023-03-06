@@ -1,7 +1,7 @@
 const $cards_past = document.querySelector( "#cards-past" );
 
-function crearTarjeta(array){
-        return `<div class="col-12 col-md-6 col-lg-3 mb-3">
+const crearTarjeta = array =>
+        `<div class="col-12 col-md-6 col-lg-3 mb-3">
         <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <img src="${array.image}" class="card-img-top" alt="${array.name}">
             <div class="card-body d-flex flex-column justify-content-between">
@@ -14,18 +14,17 @@ function crearTarjeta(array){
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="card-text ">Price $${array.price}</p>
-                    <a href="./details.html" class="btn btn-danger">More info</a>
+                    <a href="./details.html" class="btn btn-info">More info</a>
                 </div>
             </div>
         </div>
     </div>
-    `       
-}
+    `
 
 function ponerTarjetas(array, element){
     let template = '';
     for( let event of array ){
-        if(event.date < ("2022-01-01")){
+        if(event.date < data.currentDate){
             template += crearTarjeta( event )
             console.log(event);
         }
