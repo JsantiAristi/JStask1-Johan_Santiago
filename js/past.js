@@ -4,6 +4,7 @@ const $ = selector => document.querySelector(selector);
 // varibales sellecionadas
 const $cards_past = $( "#cards-past" );
 const $checkbox_Selector = $("#checkbox-selector");
+const $text_input = $("#search-input");
 
 // Datos según categoria
 const listaCategorias = Array.from( new Set( data.events.map( event => event.category ) ) )
@@ -14,6 +15,9 @@ const crearChecked = dato => `<div class="form-check form-check-inline check-box
         <label class="form-check-label" for="${dato}">${dato}</label>
     </div>
     `
+
+// Mensaje cuando no se encuentra nada
+const crearh2Alerta = () => `<h2 class="text-center mb-4"> The element was not found </h2>`
 
 // tarjetas template
 const crearTarjeta = array =>
@@ -53,6 +57,10 @@ function filtradoPast(array){
 // Tarjetas innerHTML
 function ponerTarjetas(array, element){
     let template = '';
+    if (array.length == 0){
+        template = crearh2Alerta();
+        element.innerHTML = template;
+    }
     for( let event of array ){
             template += crearTarjeta( event )
         }
@@ -60,7 +68,8 @@ function ponerTarjetas(array, element){
 }
 
 // Eventos
-$checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCheckBox(filtradoPast(data.events)),$cards_past))
+$checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCruzado(),$cards_past))
+$text_input.addEventListener("input", e => ponerTarjetas(filtroCruzado(),$cards_past ));
 
 //filtrados
 function filtroCheckBox( array ){
@@ -76,6 +85,24 @@ function filtroCheckBox( array ){
     console.log(arrayFiltrado)
     return arrayFiltrado;
 } 
+
+//filtro search
+function filtroSearch( array ){
+    const stringValue = $text_input.value.toLowerCase();
+    if (stringValue.length === 0){
+        return array;
+    }
+    const arrayString = array.filter(event => {
+        return event.name.toLowerCase().includes(stringValue);
+        }
+    )
+    return arrayString;
+}
+
+function filtroCruzado(){
+    return filtroCheckBox(filtroSearch(filtradoPast(data.events)))
+}
+
     
 ponerTarjetas( filtradoPast(data.events) , $cards_past );
 ponerChecked(listaCategorias , $checkbox_Selector);

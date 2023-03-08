@@ -10,7 +10,9 @@ const contieneId = data.events.find(elemento => elemento._id === id)
 const $details = $("#detalles");
 
 //inputs check template
-const crearDetail = dato => `<div class="border border-primary rounded mt-5 mb-5 ms-5 me-5">
+const crearDetail = dato => {
+    const change = dato.estimate ? "estimate" : "assistance"
+    return `<div class="border border-primary rounded mt-5 mb-5 ms-5 me-5">
     <div class="row">
         <div class="col-12 col-md-6 d-flex align-items-center" id="imagen-detalles">
             <img src="${dato.image}" alt="${dato.name}">
@@ -22,7 +24,7 @@ const crearDetail = dato => `<div class="border border-primary rounded mt-5 mb-5
                 <p>Category: ${dato.category}</p>
                 <p>Place: ${dato.place}</p>
                 <p>Capacity: ${dato.capacity}</p>
-                <p>Assistance: ${dato.assistance}</p>
+                <p>${change} : ${dato[change]}</p>
                 <p>price: $${dato.price}</p>
             </div>
             <div>
@@ -32,7 +34,10 @@ const crearDetail = dato => `<div class="border border-primary rounded mt-5 mb-5
         </div>
     </div>
 </div>
-    `
+` 
+}
+
+
 
 // Tarjeta innerHTML
 function ponerTarjetas( obj, element ){
