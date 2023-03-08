@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazing events - Contact</title>
-    <link rel="shortcut icon" href="./assets/Logo-Amazing-Events.png" type="image/x-icon">
-    <link rel="stylesheet" href="./styles/style.css">
+    <title>Amazing events - Past Events</title>
+    <link rel="shortcut icon" href="../assets/Logo-Amazing-Events.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
@@ -14,8 +14,8 @@
         <!-- header -->
         <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./assets/Logo-Amazing-Events.png" alt="logo">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/Logo-Amazing-Events.png" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,19 +23,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./upcoming.html">Upcoming Events</a>
+                            <a class="nav-link" href="../pages/upcoming.html">Upcoming Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pastEvent.html">Past Events</a>
+                            <a class="nav-link active" href="#">Past Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Contact</a>
+                            <a class="nav-link" href="../pages/contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./stats.html">Stats</a>
+                            <a class="nav-link" href="../pages/stats.html">Stats</a>
                         </li>
                     </ul>
                 </div>
@@ -49,40 +49,43 @@
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./assets/fondo-4.jpg" alt="feria-comida">
+                        <img src="../assets/fondo-3.1.jpg" alt="feria-comida">
                         <div class="carousel-caption d-block" id="titulo">
-                            <h1 class="text-dark bg-titulos rounded-pill">Contact</h1>
+                            <h1 class="text-dark bg-titulos rounded-pill">Past Events</h1>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-control-prev">
-                    <a href="./pastEvent.html"><span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+                    <a href="../pages/upcoming.html"><span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
                 </div>
                 <div class="carousel-control-next">
-                    <a href="./stats.html"><span class="carousel-control-next-icon" aria-hidden="true"></span></a>
+                    <a href="../pages/contact.html"><span class="carousel-control-next-icon" aria-hidden="true"></span></a>
                 </div>
             </div>
         </section>
         <!-- titulos principales -->
-        <!-- Form -->
-        <form id="form-section" class="d-flex flex-column align-items-center mt-4" action="./show-data.html" method="get">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" name="name">
+        <!-- inputs generales -->
+        <div class="mt-4 ms-4" id="inputs-generales">
+            <div class="row justify-content-around">
+                <div class="col-12 col-md-7 mb-2" id="checkbox-selector">
+                    
+                </div>
+                <div class="col-12 col-md-5 mb-2">
+                    <div class="input-group flex-nowrap d-inline d-flex justify-content-center">
+                        <input type="text" class="form-control d-inline" placeholder="Search" aria-label="Search" aria-describedby="addon-wrapping" id="search-input">
+                        <span class="input-group-text d-inline me-2" id="addon-wrapping">🔎</span>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea3" class="form-label">Message</label>
-                <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" name="Mensajes"></textarea>
-            </div>
-            <div class="mb-3 d-flex justify-content-end">
-                <input type="submit" value="Send" class="btn btn-dark" id="submit">
-            </div>
-        </form>
-        <!-- Form -->
+        </div>
+        <!-- inputs generales -->
+        <!-- cards -->
+        <section class="container mt-4" id="cards">
+            <div class="row" id="cards-past">
+                
+            </div>        
+        </section>
+        <!-- cards -->
     </main>
     <!-- Footer -->
     <footer id="footer" class="navbar-dark bg-dark pb-4 pt-4">
@@ -90,12 +93,12 @@
             <div class="row">
                 <div class="col-6 justify-content-start">
                     <div>
-                        <a href="#" class="ps-1 pe-1"><img src="./assets/instagram.png" alt="" class="mt-2"></a>
-                        <a href="#" class="ps-1 pe-1"><img src="./assets/facebook.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/instagram.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/facebook.png" alt="" class="mt-2"></a>
                     </div>
                     <div>
-                        <a href="#" class="ps-1 pe-1"><img src="./assets/whatsapp.png" alt="" class="mt-2"></a>
-                        <a href="#" class="ps-1 pe-1"><img src="./assets/gorjeo2.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/whatsapp.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/gorjeo2.png" alt="" class="mt-2"></a>
                     </div>
                 </div>
                 <div class="col-6 d-flex text-end align-items-center justify-content-end">
@@ -104,7 +107,9 @@
             </div>
         </div>
     </footer>
-    <!-- Libreria bootstrap -->
+<!-- Libreria bootstrap -->
+    <script src="../js/data.js"></script>
+    <script src="../js/past.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

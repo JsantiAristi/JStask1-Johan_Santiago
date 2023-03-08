@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing events - Upcoming Events</title>
+    <link rel="shortcut icon" href="../assets/Logo-Amazing-Events.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <header class="sticky-top">
+        <!-- header -->
+        <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/Logo-Amazing-Events.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Upcoming Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/pastEvent.html">Past Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/stats.html">Stats</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- header -->
+    <main id="main2">
+        <!-- titulos principales -->
+        <section id="titulo-principal">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/fonod-2.jpg" class="d-block" alt="feria-comida">
+                        <div class="carousel-caption d-block" id="titulo">
+                            <h1 class="text-dark bg-titulos rounded-pill">Upcoming Events</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-control-prev">
+                    <a href="../index.html"><span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+                </div>
+                <div class="carousel-control-next">
+                    <a href="../pages/pastEvent.html"><span class="carousel-control-next-icon" aria-hidden="true"></span></a>
+                </div>
+            </div>
+        </section>
+        <!-- titulos principales -->
+        <!-- inputs generales -->
+        <div class="mt-4 ms-4" id="inputs-generales">
+            <div class="row justify-content-around">
+                <div class="col-12 col-md-7 mb-2" id="checkbox-selector">
+                    <!-- <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Category 1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Category 2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                        <label class="form-check-label" for="inlineCheckbox3">Category 3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3">
+                        <label class="form-check-label" for="inlineCheckbox4">Category 4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
+                        <label class="form-check-label" for="inlineCheckbox5">Category 5</label>
+                    </div> -->
+                </div>
+                <div class="col-12 col-md-5 mb-2">
+                    <div class="input-group flex-nowrap d-inline d-flex justify-content-center">
+                        <input type="text" class="form-control d-inline" placeholder="Search" aria-label="Search" aria-describedby="addon-wrapping" id="search-input">
+                        <span class="input-group-text d-inline me-2" id="addon-wrapping">🔎</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- inputs generales -->
+        <!-- cards -->
+        <section class="container mt-4" id="cards">
+            <div class="row" id="cards-upcoming">
+                
+            </div>        
+        </section>
+        <!-- cards -->
+    </main>
+    <!-- Footer -->
+    <footer id="footer" class="navbar-dark bg-dark pb-4 pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 justify-content-start">
+                    <div>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/instagram.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/facebook.png" alt="" class="mt-2"></a>
+                    </div>
+                    <div>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/whatsapp.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/gorjeo2.png" alt="" class="mt-2"></a>
+                    </div>
+                </div>
+                <div class="col-6 d-flex text-end align-items-center justify-content-end">
+                    <p class="text-light-emphasis">MindHub Cohort 44</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Libreria bootstrap -->
+    <script src="../js/data.js"></script>
+    <script src="../js/upcoming.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
