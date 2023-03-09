@@ -17,7 +17,7 @@ const crearChecked = dato => `<div class="form-check form-check-inline check-box
     `
 
 // Mensaje cuando no se encuentra nada
-const crearh2Alerta = () => `<h2 class="text-center mb-4"> The element was not found </h2>`
+const crearh2Alerta = () => `<h2 class="text-center p-4"> The element was not found </h2>`
 
 // tarjetas template
 const crearTarjeta = array =>
@@ -66,7 +66,7 @@ function ponerTarjetas(array, element){
             template += crearTarjeta( event )
         }
     element.innerHTML = template;
-    }
+}
 
 // Eventos
 $checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCruzado(),$cards_upcoming));
@@ -107,3 +107,21 @@ function filtroCruzado(){
 
 ponerTarjetas( filtradoUpcoming(data.events) , $cards_upcoming );
 ponerChecked(listaCategorias , $checkbox_Selector)
+
+//boton
+const btnScrollTop = document.querySelector('#btn-scroll-top');
+
+btnScrollTop.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 200) {
+    btnScrollTop.style.display = 'block';
+  } else {
+    btnScrollTop.style.display = 'none';
+  }
+});

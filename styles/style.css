@@ -13,13 +13,32 @@
     width: 6rem;
 }
 
+.navbar-nav a {
+    border-bottom: 2px solid transparent;
+    position: relative;
+}
+
+.navbar a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease-out;
+    transform-origin: left;
+}
+
+.navbar a:hover:before {
+    width: 100%;
+    transition: width 0.3s ease-out;
+    transform-origin: right;
+}
+
 /* -------------------------------------------------------------------Main------------------------------------------------------------------ */
 main {
     min-height: 80vh;
-}
-
-#inputs-generales label{
-    width: 8rem;
 }
 
 /*-------------------------------------------------------------------titulos------------------------------------------------------------------*/
@@ -34,14 +53,19 @@ main {
     bottom: 30%;
 }
 
+/*-----------------------------------------------------------------Inputs---------------------------------------------------------------------*/
+#inputs-generales label{
+    width: 9rem;
+    cursor: pointer;
+}
+
+#inputs-generales .row{
+    width: 100%;
+}
+
 #search-input {
     flex: none;
     width: 15rem;
-}
-
-/*Inputs*/
-#inputs-generales .row{
-    width: 100%;
 }
 
 /*----------------------------------------------------------------Cards---------------------------------------------------------------------*/
@@ -77,6 +101,34 @@ main {
     padding: 1rem;
     border-radius: 2rem;
     object-fit: cover;
+}
+
+/*--------------------------------------------------------boton que lleva al inicio-----------------------------------------------------------*/
+#btn-scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#btn-scroll-top:hover {
+    background-color: #555;
+}
+
+.fa-angle-up {
+    display: inline-block;
+    transform: rotate(-45deg);
 }
 
 /*----------------------------------------------------------------Footer---------------------------------------------------------------------*/

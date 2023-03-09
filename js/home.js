@@ -99,3 +99,21 @@ function filtroCruzado(){
 
 ponerTarjetas( data.events , $cards_home );
 ponerChecked(listaCategorias , $checkbox_Selector)
+
+//boton
+const btnScrollTop = document.querySelector('#btn-scroll-top');
+
+btnScrollTop.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 200) {
+    btnScrollTop.style.display = 'block';
+  } else {
+    btnScrollTop.style.display = 'none';
+  }
+});

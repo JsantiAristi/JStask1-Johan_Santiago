@@ -20,8 +20,8 @@ const crearDetail = dato => {
         <div class="col-12 col-md-6 text-center d-flex flex-column justify-content-between">
             <div>
                 <h3 class="pt-2">${dato.name}</h3>
-                <p class="pt-4 pe-2">${dato.description}</p>
-                <p>Category: ${dato.category}</p>
+                <h4 class="pt-4 pe-2">${dato.description}</h4>
+                <p class="text-center pt-2">Category: ${dato.category}</p>
                 <p>Place: ${dato.place}</p>
                 <p>Capacity: ${dato.capacity}</p>
                 <p>${change} : ${dato[change]}</p>
@@ -36,8 +36,6 @@ const crearDetail = dato => {
 </div>
 ` 
 }
-
-
 
 // Tarjeta innerHTML
 function ponerTarjetas( obj, element ){
