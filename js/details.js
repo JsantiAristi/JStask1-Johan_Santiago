@@ -4,7 +4,7 @@ const $ = selector => document.querySelector(selector);
 //cambio en la URL
 const params = new URLSearchParams(location.search);
 const id = params.get("id");
-const contieneId = data.events.find(elemento => elemento._id === id) 
+const contieneId = data.events.find(elemento => elemento._id === id);
 
 // varibales selecionadas
 const $details = $("#detalles");

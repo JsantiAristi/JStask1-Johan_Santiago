@@ -6,8 +6,21 @@ const $cards_home = $("#cards-home");
 const $checkbox_Selector = $("#checkbox-selector");
 const $text_input = $("#search-input");
 
+fetch
+function traerDatos(){
+    const nuevaURL = "https://mindhub-xj03.onrender.com/api/amazing";
+    const data = fetch (nuevaURL)
+    .then(response => response.json())
+    .then(datos => datos.results)
+    .catch (error => console.log(error));
+    console.log(data);
+    return data;
+}
+
+traerDatos();
+
 // Datos según categoria
-const listaCategorias = Array.from( new Set( data.events.map( event => event.category ) ) )
+const listaCategorias = Array.from( new Set( data.events.map( event => event.category ) ) );
 
 // Inputs check template
 const crearChecked = dato => `<div class="form-check form-check-inline check-box">
@@ -74,7 +87,7 @@ function filtroCheckBox( array ){
         return array;
     }
     const arrayFiltrado = array.filter(event => {
-        return arrayValues.includes(event.category)
+        return arrayValues.includes(event.category);
         }
     )
     return arrayFiltrado;
@@ -94,11 +107,11 @@ function filtroSearch( array ){
 
 // Filtro Cruzado
 function filtroCruzado(){
-    return filtroCheckBox( filtroSearch(data.events) )
+    return filtroCheckBox( filtroSearch(data.events) );
 }
 
 ponerTarjetas( data.events , $cards_home );
-ponerChecked(listaCategorias , $checkbox_Selector)
+ponerChecked(listaCategorias , $checkbox_Selector);
 
 //boton
 const btnScrollTop = document.querySelector('#btn-scroll-top');
