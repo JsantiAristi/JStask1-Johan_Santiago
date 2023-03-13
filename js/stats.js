@@ -15,9 +15,6 @@ let totalcapacity = 0
 
 //tabla 3
 const categories2 = {}
-let totalprice2 = 0
-let totalassistance = 0
-let totalcapacity2 = 0
 
 //fetch de mi array de datos
 function traerDatos() {
