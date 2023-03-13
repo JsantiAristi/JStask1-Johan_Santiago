@@ -6,21 +6,21 @@ const $cards_home = $("#cards-home");
 const $checkbox_Selector = $("#checkbox-selector");
 const $text_input = $("#search-input");
 
-fetch
+//fetch de mi array de datos
 function traerDatos(){
-    const nuevaURL = "https://mindhub-xj03.onrender.com/api/amazing";
-    const data = fetch (nuevaURL)
+    fetch ("https://mindhub-xj03.onrender.com/api/amazing")
     .then(response => response.json())
-    .then(datos => datos.results)
+    .then(datos => {
+        const listaCategorias = Array.from( new Set( datos.events.map( event => event.category ) ) )
+        ponerChecked(listaCategorias, $checkbox_Selector)
+        ponerTarjetas( datos.events , $cards_home );
+        $checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCruzado(datos.events),$cards_home));
+        $text_input.addEventListener("input", e => ponerTarjetas(filtroCruzado(datos.events),$cards_home ));
+    })
     .catch (error => console.log(error));
-    console.log(data);
-    return data;
 }
 
-traerDatos();
-
-// Datos según categoria
-const listaCategorias = Array.from( new Set( data.events.map( event => event.category ) ) );
+traerDatos()
 
 // Inputs check template
 const crearChecked = dato => `<div class="form-check form-check-inline check-box">
@@ -75,10 +75,6 @@ function ponerChecked( array, element ){
     element.innerHTML = template;
 }
 
-// Eventos
-$checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCruzado(),$cards_home));
-$text_input.addEventListener("input", e => ponerTarjetas(filtroCruzado(),$cards_home ));
-
 // Filtrados
 function filtroCheckBox( array ){
     const $check_box = Array.from(document.querySelectorAll('input[type=checkbox]:checked'));
@@ -106,12 +102,9 @@ function filtroSearch( array ){
 }
 
 // Filtro Cruzado
-function filtroCruzado(){
-    return filtroCheckBox( filtroSearch(data.events) );
+function filtroCruzado(array){
+    return filtroCheckBox( filtroSearch(array) );
 }
-
-ponerTarjetas( data.events , $cards_home );
-ponerChecked(listaCategorias , $checkbox_Selector);
 
 //boton
 const btnScrollTop = document.querySelector('#btn-scroll-top');

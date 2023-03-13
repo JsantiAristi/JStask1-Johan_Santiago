@@ -63,7 +63,7 @@
         <!-- titulos principales -->
         <!-- inputs generales -->
         <div class="mt-4 ms-4 me-4">
-            <table class="table">
+            <table class="table" id="first-table">
                 <thead>
                     <tr>
                         <th scope="col" colspan="3" class="table-info">Event Statistics</th>
@@ -82,33 +82,19 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table">
+            <table class="table" >
                 <thead>
                     <tr>
                         <th scope="col" colspan="3" class="table-info">Upcoming events statistics by category</th>
                     </tr>
-                </thead>
-                <tbody>
                     <tr>
                         <td class="firt-row">Categories</td>
                         <td class="second-row">Revenues</td>
                         <td>percentage of attendance</td>
                     </tr>
-                    <tr>
-                        <td class="firt-row"></td>
-                        <td class="second-row"></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td class="firt-row"></td>
-                        <td class="second-row"></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td class="firt-row"></td>
-                        <td class="second-row"></td>
-                        <td>-</td>
-                    </tr>
+                </thead>
+                <tbody id="second-table">
+                    
                 </tbody>
             </table>
             <table class="table">
@@ -116,28 +102,14 @@
                     <tr>
                         <th scope="col" colspan="3" class="table-info">Past events statistics by category</th>
                     </tr>
-                </thead>
-                <tbody>
                     <tr>
                         <td class="firt-row">Categories</td>
                         <td class="second-row">Revenues</td>
                         <td>percentage of attendance</td>
                     </tr>
-                    <tr>
-                        <td class="firt-row"></td>
-                        <td class="second-row"></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td class="firt-row"></td>
-                        <td class="second-row"></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td class="firt-row"></td>
-                        <td class="second-row"></td>
-                        <td>-</td>
-                    </tr>
+                </thead>
+                <tbody id="third-table">
+                    
                 </tbody>
             </table>
         </div>
@@ -164,6 +136,7 @@
         </div>
     </footer>
 <!-- Libreria bootstrap -->
+    <script src="../js/stats.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

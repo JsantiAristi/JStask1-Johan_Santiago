@@ -1,10 +1,26 @@
 // Funcion de selectores
 const $ = selector => document.querySelector(selector);
 
-//cambio en la URL
-const params = new URLSearchParams(location.search);
-const id = params.get("id");
-const contieneId = data.events.find(elemento => elemento._id === id);
+//fetch de mi array de datos
+function traerDatos(){
+    const objetoDatos = fetch ("https://mindhub-xj03.onrender.com/api/amazing")
+    .then(response => response.json())
+    .then(datos => {
+        //cambio en la URL
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+        console.log(id);
+        // objeto que tiene el Id
+        const contieneId = datos.events.find(elemento => elemento._id == id);
+        console.log(contieneId);
+        // Añadimos las tarjetas
+        ponerTarjetas(contieneId,$details)
+    })
+    .catch (error => console.log(error));
+}
+
+// Ejecuto la promesa
+traerDatos()
 
 // varibales selecionadas
 const $details = $("#detalles");
@@ -43,5 +59,3 @@ function ponerTarjetas( obj, element ){
     template += crearDetail( obj )
     element.innerHTML = template;
 }
-
-ponerTarjetas(contieneId,$details)

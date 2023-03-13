@@ -6,8 +6,26 @@ const $cards_past = $( "#cards-past" );
 const $checkbox_Selector = $("#checkbox-selector");
 const $text_input = $("#search-input");
 
-// Datos según categoria
-const listaCategorias = Array.from( new Set( data.events.map( event => event.category ) ) )
+//fetch de mi array de datos
+function traerDatos(){
+    fetch ("https://mindhub-xj03.onrender.com/api/amazing")
+    .then(response => response.json())
+    .then(datos => {
+        // Array de categorias
+        const listaCategorias = Array.from( new Set( datos.events.map( event => event.category ) ) )
+        // Añadimos los checkbox
+        ponerChecked(listaCategorias, $checkbox_Selector)
+        // Añadimos las tarjetas
+        ponerTarjetas(filtradoPast(datos.events,datos) , $cards_past);
+        // Ejecutamos los eventos
+        $checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCruzado(datos.events,datos),$cards_past));
+        $text_input.addEventListener("input", e => ponerTarjetas(filtroCruzado(datos.events,datos),$cards_past ));
+    })
+    .catch (error => console.log(error));
+}
+
+// Ejecuto la promesa
+traerDatos()
 
 //inputs check template
 const crearChecked = dato => `<div class="form-check form-check-inline check-box">
@@ -50,8 +68,9 @@ function ponerChecked( array, element ){
     element.innerHTML = template;
 }
 
-function filtradoPast(array){
-    return array.filter(event => event.date < data.currentDate);
+// filtrado por fechas
+function filtradoPast(array,obj){
+    return array.filter(event => event.date < obj.currentDate);
 }
 
 // Tarjetas innerHTML
@@ -66,10 +85,6 @@ function ponerTarjetas(array, element){
         }
     element.innerHTML = template;
 }
-
-// Eventos
-$checkbox_Selector.addEventListener( 'change', e => ponerTarjetas(filtroCruzado(),$cards_past))
-$text_input.addEventListener("input", e => ponerTarjetas(filtroCruzado(),$cards_past ));
 
 //filtrados
 function filtroCheckBox( array ){
@@ -99,13 +114,9 @@ function filtroSearch( array ){
     return arrayString;
 }
 
-function filtroCruzado(){
-    return filtroCheckBox(filtroSearch(filtradoPast(data.events)))
+function filtroCruzado(array,obj){
+    return filtroCheckBox(filtroSearch(filtradoPast(array,obj)))
 }
-
-    
-ponerTarjetas( filtradoPast(data.events) , $cards_past );
-ponerChecked(listaCategorias , $checkbox_Selector);
 
 //boton
 const btnScrollTop = document.querySelector('#btn-scroll-top');
