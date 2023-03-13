@@ -29,10 +29,6 @@ function traerDatos() {
 
         // Procesamos cada evento
         filtradoUpcoming(datos.events,datos).forEach(event => {
-            // agregamos el valor a cada variable correspondiente.
-            totalprice = event.price
-            totalestimate = event.estimate
-            totalcapacity = event.capacity
             // Si la categoría no existe la creamos
             if (!categories[event.category]) {
                 categories[event.category] = {
@@ -51,10 +47,6 @@ function traerDatos() {
 
         // Procesamos cada evento tabla past
         filtradoPast(datos.events,datos).forEach(event => {
-            // agregamos el valor a cada variable correspondiente.
-            totalprice2 = event.price
-            totalassistance = event.assistance
-            totalcapacity2 = event.capacity
             // Si la categoría no existe la creamos
             if (!categories2[event.category]) {
                 categories2[event.category] = {
