@@ -9,9 +9,6 @@ const $third_table = $( "#third-table" );
 
 //tabla 2
 const categories = {}
-let totalprice = 0
-let totalestimate = 0
-let totalcapacity = 0
 
 //tabla 3
 const categories2 = {}
@@ -22,7 +19,7 @@ function traerDatos() {
     .then(response => response.json())
     .then(datos => {
         // Pongo la primera tabla
-        ponerTablaObject(resultadoMayorPorcentaje(datos.events,datos) , resultadoMenorPorcentaje(datos.events,datos) , resultadoMasCapacidad(datos.events) , crearTabla1, $first_table);
+        ponerTablaObject(resultadoMayorPorcentaje(datos.events,datos) , resultadoMenorPorcentaje(datos.events,datos) , resultadoMasCapacidad(datos.events), $first_table);
 
         // Procesamos cada evento
         filtradoUpcoming(datos.events,datos).forEach(event => {
@@ -39,6 +36,7 @@ function traerDatos() {
             categories[event.category].capacity += event.capacity
             categories[event.category].estimate += event.estimate
         })
+        console.log(categories);
         // Mostramos la información de cada categoría
         ponerTabla2(categories , $second_table)
 
@@ -57,7 +55,7 @@ function traerDatos() {
             categories2[event.category].capacity += event.capacity
             categories2[event.category].assistance += event.assistance
         })
-
+        console.log(categories2);
         // Mostramos la información de cada categoría
         ponerTabla3(categories2 , $third_table)
 
@@ -103,39 +101,28 @@ const resultadoMasCapacidad = (array) => array.sort((evento1, evento2) => {
 
 // creacion de tabla 1
 const crearTabla1 = (objMax , objMin , objCapacity) =>
-        `<thead>
+        `
         <tr>
-            <th scope="col" colspan="3" class="table-info">Event Statistics</th>
+            <td class="firt-row">${objMax.name}</td>
+            <td class="second-row">${objMin.name}</td>
+            <td>${objCapacity.name}</td>
         </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="firt-row">Event with the higuest percentage of attendance</td>
-                <td class="second-row">Event with the lowest percentage of attendance</td>
-                <td>Event with larger capacity</td>
-            </tr>
-            <tr>
-                <td class="firt-row">${objMax.name}</td>
-                <td class="second-row">${objMin.name}</td>
-                <td>${objCapacity.name}</td>
-            </tr>
-        </tbody>
     `
 
 // creacion tabla 2
 const crearTabla2 = (dato1 , dato2 , dato3) => 
     `  
     <tr>
-        <td>${dato1} </td>
-        <td>${dato2} </td>
+        <td class="firt-row">${dato1} </td>
+        <td class="second-row">${dato2} </td>
         <td>${dato3}%</td>
     </tr>
     `
 
 // Colocar tablas en el innerHTML
-function ponerTablaObject(objMax , objMin , objCapacity, funcion, element){
+function ponerTablaObject(objMax , objMin , objCapacity, element){
     let template = '';
-    template += funcion(objMax , objMin , objCapacity)
+    template += crearTabla1(objMax , objMin , objCapacity)
     element.innerHTML = template;
 }
 
@@ -146,7 +133,7 @@ function ponerTabla2 (obj, element){
         const prices = obj[category].price
         const estimate = obj[category].estimate
         const capacity = obj[category].capacity
-        const porcentaje = (estimate * 100 / capacity).toFixed(2)
+        const porcentaje = ((estimate  / capacity)*100).toFixed(2)
         template += crearTabla2(category , prices , porcentaje)
     }
     element.innerHTML = template;

@@ -9,10 +9,8 @@ function traerDatos(){
         //cambio en la URL
         const params = new URLSearchParams(location.search);
         const id = params.get("id");
-        console.log(id);
         // objeto que tiene el Id
         const contieneId = datos.events.find(elemento => elemento._id == id);
-        console.log(contieneId);
         // Añadimos las tarjetas
         ponerTarjetas(contieneId,$details)
     })

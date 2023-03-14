@@ -20,7 +20,7 @@ function traerDatos(){
     .catch (error => console.log(error));
 }
 
-traerDatos()
+traerDatos();
 
 // Inputs check template
 const crearChecked = dato => `<div class="form-check form-check-inline check-box">
